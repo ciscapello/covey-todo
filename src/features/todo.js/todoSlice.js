@@ -3,11 +3,12 @@ import { v4 } from "uuid";
 
 const initialState = {
     todos: [
-        { text: 'пойти поделать всякие дела', completed: false, key: v4() },
-        { text: 'пойти поучиться', completed: false, key: v4() },
-        { text: 'выйти и зайти', completed: false, key: v4() },
+        { text: 'пойти поделать всякие дела', completed: false, key: v4(), type: 1 },
+        { text: 'пойти поучиться', completed: false, key: v4(), type: 2 },
+        { text: 'выйти и зайти', completed: false, key: v4(), type: 4 },
     ],
-    input: ''
+    input: '',
+    type: 1
 }
 
 export const todoSlice = createSlice({
@@ -15,11 +16,16 @@ export const todoSlice = createSlice({
     initialState,
     reducers: {
         remove: (state, action) => {
-            state.todos = state.todos.filter((elem, i) => i !== action.payload);
+            state.todos = state.todos.filter((elem) => elem.key !== action.payload);
             console.log(state.todos);
         },
         add: (state, action) => {
-            let elem = { text: action.payload.trim(), completed: false, key: `${v4()}` };
+            let elem = { 
+                text: action.payload.trim(), 
+                completed: false, 
+                key: `${v4()}`, 
+                type: state.type
+            };
             state.todos.push(elem);
         },
         edit: (state, action) => {
@@ -32,6 +38,9 @@ export const todoSlice = createSlice({
         change: (state, action) => {
             state.input = action.payload
         },
+        typeChange: (state, action) => {
+            state.type = action.payload;
+        }
         // complete: (state, action) => {
         //     let todo = state.todos.find((elem, i) => i === action.payload);
         //     todo.completed = !todo.completed;
@@ -39,5 +48,5 @@ export const todoSlice = createSlice({
     }
 })
 
-export const { remove, add, change, edit, clear, complete } = todoSlice.actions;
+export const { remove, add, change, edit, clear, complete, typeChange } = todoSlice.actions;
 export default todoSlice.reducer;

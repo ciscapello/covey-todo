@@ -1,8 +1,16 @@
+* {
+    font-family: Roboto;
+}
+
 .input_container {
     display: flex;
     column-gap: 10px;
-    width: 700px;
+    width: 900px;
     margin: 0 auto;
+}
+
+.input {
+    width: 700px;
 }
 
 .container {
@@ -10,10 +18,14 @@
 }
 
 .list {
-    width: 500px;
+    /* width: 500px; */
     margin: 40px auto;
     border: 1px solid gray;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.list-item {
+    word-wrap: break-word; 
 }
 
 .listMui {
@@ -22,4 +34,18 @@
 
 .btn-group {
     margin-left: auto;
+}
+
+.vertical {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.table-data {
+    min-width: 450px;
+    min-height: 450px;
+}
+
+.table {
+    width: 100%;
 }

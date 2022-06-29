@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Input from './components/input';
-import TodoList from './components/list';
+import Table from './components/table';
 import './App.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
             <Input />
         </div>
     <div className='list'>
-            <TodoList />
+            <Table />
     </div>
   </div>
 }

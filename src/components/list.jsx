@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { remove, edit } from '../features/todo.js/todoSlice';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,23 +8,23 @@ import { v4 } from 'uuid';
 
 
 
-export default function TodoList() {
+export default function TodoList({ todos }) {
     let dispatch = useDispatch();
-    let todoList = useSelector(state => state.todo.todos);
+    // let todoList = useSelector(state => state.todo.todos);
     
 
     return <List className='listMui'>
-        {todoList.map((todo, i) => (
+        {todos.map((todo, i) => (
             <ListItemButton 
                 key={v4()}
                 // style={{ textDecoration: `${todo.completed ? 'line-through' : 'none'}` }}
                 // onClick={(e) => dispatch(complete(e, i))}
             >
-                <div>
+                <div className="list-item">
                     {todo.text}
                 </div>
                 <div className='btn-group'>
-                    <IconButton onClick={() => dispatch(remove(i))}>
+                    <IconButton onClick={() => dispatch(remove(todo.key))}>
                         <DeleteIcon />
                     </IconButton>
                     <IconButton onClick={() => dispatch(edit(i))}>
