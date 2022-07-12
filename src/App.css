@@ -2,6 +2,34 @@
     font-family: Roboto;
 }
 
+.app {
+    display: flex;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin-right: 50px;
+}
+
+.nav-item {
+    display: block;
+}
+
+.nav-item:hover {
+    display: block;
+    transition: 0.3s;
+    box-shadow: inset 1px 2px 5px rgb(60, 55, 55);
+}
+
+.nav-item a {
+    padding: 4px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
 .input_container {
     display: flex;
     column-gap: 10px;
@@ -48,4 +76,33 @@
 
 .table {
     width: 100%;
+}
+
+.img-paragraph {
+    display: flex;
+
+}
+
+.text-about h2 {
+    text-align: center;
+}
+
+.text-about img {
+    max-width: 300px;
+}
+
+.text-about {
+    color: #444545;
+    margin-left: 150px;
+    width: 800px;
+    font-size: 18px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.text-about figure {
+    font-size: 14px;
+    text-align: center;
+}
+.text-about figure img {
+    min-width: 600px;
 }

@@ -1,18 +1,24 @@
 import React from 'react';
 
-import Input from './components/input';
-import Table from './components/table';
+import AppTodo from './views/appTodo';
+import NavMenu from './views/navMenu';
+import AboutTodo from './views/aboutTodo';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import './App.css';
 
 function App() {
-    return <div className='container'>
-        <div className='input_container'>
-            <Input />
-        </div>
-    <div className='list'>
-            <Table />
+    
+    return  <div className='app'>
+        <BrowserRouter>
+            <NavMenu />
+            <Routes>
+                <Route path='/' element={<AppTodo />} />
+                <Route path="about" element={<AboutTodo />}>
+            </Route>
+            </Routes>
+        </BrowserRouter>
     </div>
-  </div>
 }
 
 export default App;

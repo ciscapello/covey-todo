@@ -1,8 +1,13 @@
 import React from 'react';
 import TodoList from './list';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { load } from '../features/todo.js/todoSlice';
+
 
 export default function Table () {
+    let dispatch = useDispatch();
+    dispatch(load());
     let todoList = useSelector(state => state.todo.todos);
     let first = todoList.filter((elem) => elem.type === 1);
     let second = todoList.filter((elem) => elem.type === 2);
